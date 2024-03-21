@@ -16,9 +16,12 @@ did_both = [student for student in submitted if student in attended]
 print(did_both)
 list_equal = [len(submitted) == len(attended)]
 print(list_equal)
-attended.remove("Eve")
-attended.remove("Frank")
-print(attended) 
+for student in attended:
+    if student not in submitted:
+        attended.remove(student)
+        print(attended)
+
+        
 
 
 temperatures = [72, 75, 78, 79, 80, 81, 82, 83, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106]
@@ -34,12 +37,16 @@ print(fifth_to_tenth_day)
 students = ["John", "Doe", "Jane", "Smith"]
 grades = [85, 90, 78, 88]
 activities = ["Football", "Music", "Art", "Dance"]
-for i in range(len(students)):               
+filtered_students = []
+for i in range(len(students)):
     if grades[i] < 80:
-        print("name of student", students[i], "grade", grades[i], "activity", activities[i])
-students_approved = ["john", "Doe", "Smith"]
-print(students_approved)
+        print(students[i], grades[i], activities[i])
+        filtered_students.append(students[i])
+students_approved = []
+for student in students:
+    if student not in filtered_students:
+        students_approved.append(student)
+print("Students Approved:", students_approved)
 
-   
 
 
